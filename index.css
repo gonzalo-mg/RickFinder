@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+
+  margin: 0;
+
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+}
+
+header {
+  background-color: var(--primary-color);
+  text-align: center;
+  font-family: "schwifty";
+}
+
+main {
+    background-color: var(--terciary-color);
+}
+
+footer {
+  background-color: var(--secondary-color);
+  text-align: center;
+  font-family: "orbitron";
+}

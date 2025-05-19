@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "schwifty";
+  src: url("./fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "orbitron";
+  src: url("./fonts/Orbitron-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

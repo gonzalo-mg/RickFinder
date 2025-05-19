@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #88e23b;
+  --secondary-color: #ebe480;
+  --terciary-color: #043c6e;
+
+  --danger-color: red;
+  --warning-color: orange;
+
+  --base-font-size: 16px;
+  --body-font: serif;
+  --heading-font: sans-serif;
+}
