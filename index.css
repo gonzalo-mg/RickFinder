@@ -25,6 +25,8 @@ header {
   font-family: "schwifty";
   font-size: var(--font-size-heading);
   text-align: center;
+
+  color: var(--color-terciary);
 }
 
 main {
