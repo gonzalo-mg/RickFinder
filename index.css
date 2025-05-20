@@ -27,6 +27,8 @@ header {
   text-align: center;
 
   color: var(--color-terciary);
+
+  padding: 12px 0px;
 }
 
 main {
