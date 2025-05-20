@@ -20,17 +20,19 @@ body {
 }
 
 header {
-  background-color: var(--primary-color);
-  text-align: center;
+  background-color: var(--color-primary);
+
   font-family: "schwifty";
+  font-size: var(--font-size-heading);
+  text-align: center;
 }
 
 main {
-    background-color: var(--terciary-color);
+  background-color: var(--color-terciary);
 }
 
 footer {
-  background-color: var(--secondary-color);
+  background-color: var(--color-secondary);
   text-align: center;
   font-family: "orbitron";
 }
