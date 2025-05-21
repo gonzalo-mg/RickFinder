@@ -3,13 +3,16 @@
   --color-secondary: #ebe480;
   --color-terciary: #043c6e;
 
-  --colordanger: red;
+  --color-danger: darkred;
   --color-warning: orange;
 
+  --color-console-dark: #02afc5;
+  --color-console-light: #a9f3fd;
+  --color-console-text: antiquewhite;
 
-  --body-font: serif;
+  --font-family-body: serif;
 
   --font-size-heading: 48px;
-  --font-size-title: 24px;
-  --font-size-base: 16px;
+  --font-size-base: 26px;
+  --font-size-field-titles: 17px;
 }

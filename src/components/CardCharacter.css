@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  margin: 2.5rem;
+
+  border: 10px var(--color-console-light) solid;
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  
+  background-color: var(--color-console-dark);
+
+  width: 250px;
+  height: 600px;
+}
+
+ul {
+  list-style-type: none;
+
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+
+  background-color: var(--color-console-dark);
+  color: var(--color-console-text);
+}
+
+li {
+  margin: 5px;
+}
+
+.fieldTitle {
+  font-family: "orbitron";
+  font-size: var(--font-size-field-titles);
+
+  color: var(--color-console-light);
+}
+
+.Dead {
+  color: var(--color-danger);
+}
