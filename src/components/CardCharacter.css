@@ -1,19 +1,18 @@
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
-  margin: 2.5rem;
+  margin: 20px;
 
-  border: 10px var(--color-console-light) solid;
+  border: 10px var(--color-primary) solid;
   border-radius: 10px;
 
-  overflow: hidden;
+  overflow: clip;
 
-  
   background-color: var(--color-console-dark);
 
-  width: 250px;
-  height: 600px;
+  width: 450px;
+  height: 200px;
 }
 
 ul {

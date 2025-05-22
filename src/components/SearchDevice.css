@@ -1,0 +1,41 @@
+search-device {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px;
+  max-height: 100%;
+}
+
+.screen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-console-light);
+}
+
+.controls {
+  background-color: var(--color-console-dark);
+
+  color: var(--color-console-light);
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: "orbitron";
+}
+
+.radioGroup {
+  margin: 0 25px;
+}
+
+#filteredName {
+  margin-left: 50px;
+}

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -9,8 +10,9 @@ html {
 }
 
 body {
+  height: 100vh;
+
   display: grid;
-  min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 
   margin: 0;
@@ -33,6 +35,7 @@ header {
 
 main {
   background-color: var(--color-terciary);
+  overflow: auto;
 }
 
 footer {

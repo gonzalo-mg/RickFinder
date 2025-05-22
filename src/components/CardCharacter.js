@@ -1,6 +1,7 @@
 import styles from './CardCharacter.css' with {type: 'css'};
 
 class CardCharacter extends HTMLElement {
+  id = `id`;
   name = `unknown`;
   origin = `unknown`;
   species = `unknown`;
@@ -14,6 +15,7 @@ class CardCharacter extends HTMLElement {
   }
 
   set(character) {
+    this.id = character.id
     this.name = character.name;
     this.origin = character.origin.name;
     this.species = character.species;
@@ -26,13 +28,11 @@ class CardCharacter extends HTMLElement {
     this.shadowRoot.adoptedStyleSheets.push(styles);
     this.shadowRoot.innerHTML = /* html */ `
 
-        <div class="card">
-            <img alt="profile picture" src=${this.image} width="250" height="250">    
+        <div class="card" id=${this.id}>
+            <img alt="profile picture" src=${this.image} width="200" height="200">    
             <ul>
                 <li><div class='fieldTitle'>Name:</div> ${this.name}</li>
                 <li><div class='fieldTitle'>Origin:</div> ${this.origin}</li>
-                <li><div class='fieldTitle'>Species:</div> ${this.species}</li>
-                <li><div class='fieldTitle'>Last known location:</div> ${this.location}</li>
                 <li><div class='fieldTitle'>Status:</div> <div class=${this.status}>${this.status}</div></li>
             </ul>
         </div>
