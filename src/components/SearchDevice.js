@@ -5,6 +5,8 @@ class SearchDevice extends HTMLElement {
   #locations = [];
 
   #screenDiv;
+  #radioButtons;
+  #filteredNameInput;
 
   constructor() {
     super();
@@ -14,6 +16,7 @@ class SearchDevice extends HTMLElement {
   connectedCallback() {
     this.shadowRoot.adoptedStyleSheets.push(styles);
     this.shadowRoot.innerHTML = /* html */ `
+
 
         <div class='controls'>
           <div class='radioGroup'>
@@ -27,13 +30,21 @@ class SearchDevice extends HTMLElement {
           <input type='text' id='filteredName' name='filteredName'>
         </div>
 
-        <div class='screen'>Loading ...</div>
-    
+
+      <div class='screen'>Loading ...</div>
+  
       `;
 
     this.#screenDiv = this.shadowRoot.querySelector(".screen");
-
     this.#fetchData();
+
+    this.#radioButtons = this.shadowRoot.querySelectorAll('input[name=searchedItems]');
+    this.#radioButtons.forEach(radio => {
+      radio.addEventListener('click', this.#handleRadioChange.bind(this));
+    });
+
+    this.#filteredNameInput = this.shadowRoot.querySelector('input[name=filteredName]');
+    this.#filteredNameInput.addEventListener('input', this.#handleFilteredNameChange.bind(this));
   }
 
   async #fetchData() {
@@ -51,8 +62,6 @@ class SearchDevice extends HTMLElement {
         <p>Data loaded. Ready to begin your search.</p>
         `;
 
-        this.#renderCharacters();
-
     } catch (error) {
       console.error("Failed to fetch data:", error);
       this.#screenDiv.innerHTML = /* html */ `
@@ -61,34 +70,82 @@ class SearchDevice extends HTMLElement {
     }
   }
 
-  #renderCharacters() {
+  #renderCharacters(filteredName = '') {
     if (!this.#screenDiv) {
-      return; // Ensure screenDiv is available
+      return;
     }
-
-    // Clear previous content
+  
+    // clear previous
     this.#screenDiv.innerHTML = "";
-
-    this.#characters.forEach((character) => {
+  
+    const charactersToRender = this.#characters.filter(character =>
+      character.name.toLowerCase().includes(filteredName.toLowerCase())
+    );
+  
+    if (charactersToRender.length === 0) {
+      this.#screenDiv.innerHTML = "<p>No character matches your search.</p>";
+      return;
+    }
+  
+    charactersToRender.forEach((character) => {
       const cardCharacter = document.createElement("card-character");
       cardCharacter.set(character);
       this.#screenDiv.appendChild(cardCharacter);
     });
   }
 
-  #renderLocations() {
+  #renderLocations(filteredName = '') {
     if (!this.#screenDiv) {
-      return; // Ensure screenDiv is available
+      return;
     }
-
-    // Clear previous content
+  
+    // clear previous
     this.#screenDiv.innerHTML = "";
-
-    this.#locations.forEach((location) => {
+  
+    const locationsToRender = this.#locations.filter(location =>
+      location.name.toLowerCase().includes(filteredName.toLowerCase())
+    );
+  
+    if (locationsToRender.length === 0) {
+      this.#screenDiv.innerHTML = "<p>No location matches your search.</p>";
+      return;
+    }
+  
+    locationsToRender.forEach((location) => {
       const cardLocation = document.createElement("card-location");
       cardLocation.set(location);
       this.#screenDiv.appendChild(cardLocation);
     });
+  }
+
+  #handleRadioChange(event) {
+    const currentFilterName = this.#filteredNameInput.value;
+    switch (event.target.value){
+      case 'characters':
+        this.#renderCharacters(currentFilterName);
+        break;
+      case 'locations':
+        this.#renderLocations(currentFilterName);
+        break;
+    }
+  }
+  
+  #handleFilteredNameChange(event) {
+    const currentFilterName = this.#filteredNameInput.value;
+    const selectedRadioButton = this.shadowRoot.querySelector('input[name="searchedItems"]:checked');
+    
+    if (selectedRadioButton) {
+      switch (selectedRadioButton.value) {
+        case 'characters':
+          this.#renderCharacters(currentFilterName);
+          break;
+        case 'locations':
+          this.#renderLocations(currentFilterName);
+          break;
+      }
+    } else {
+      
+    }
   }
 }
 
