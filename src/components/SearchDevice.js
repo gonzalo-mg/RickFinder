@@ -17,7 +17,6 @@ class SearchDevice extends HTMLElement {
     this.shadowRoot.adoptedStyleSheets.push(styles);
     this.shadowRoot.innerHTML = /* html */ `
 
-
         <div class='controls'>
           <div class='radioGroup'>
             <input type="radio" id="characters" name="searchedItems" value="characters">
@@ -27,9 +26,8 @@ class SearchDevice extends HTMLElement {
             <input type="radio" id="locations" name="searchedItems" value="locations">
             <label for="locations">locations</label>
           </div>
-          <input type='text' id='filteredName' name='filteredName'>
+          <input type='text' id='filteredName' name='filteredName' placeholder='filter by name'>
         </div>
-
 
       <div class='screen'>Loading ...</div>
   

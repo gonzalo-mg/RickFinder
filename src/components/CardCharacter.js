@@ -1,3 +1,4 @@
+import cardStyles from '../styles/cards.css' with {type: 'css'};
 import styles from './CardCharacter.css' with {type: 'css'};
 
 class CardCharacter extends HTMLElement {
@@ -25,6 +26,7 @@ class CardCharacter extends HTMLElement {
   }
 
   connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets.push(cardStyles);
     this.shadowRoot.adoptedStyleSheets.push(styles);
     this.shadowRoot.innerHTML = /* html */ `
 
